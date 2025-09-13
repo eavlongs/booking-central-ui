@@ -1,6 +1,21 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2025-07-15',
+  compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
-  modules: ['@nuxt/icon', '@nuxt/fonts']
+  modules: ["@nuxt/icon", "@nuxt/fonts", "@nuxt/ui"],
+  css: ["~/assets/css/main.css"],
+  runtimeConfig: {
+    public: {
+      backendLoginPath: "",
+      apiUrl: "",
+    },
+  },
+  ui: {
+    colorMode: false,
+    theme: {
+      colors: {
+        primary: "blue",
+      },
+    },
+  },
 })
