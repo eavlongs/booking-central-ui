@@ -9,7 +9,10 @@
   // Vue specific settings
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "always"
+    }
   },
 
   //   "editor.wordWrap": "on",

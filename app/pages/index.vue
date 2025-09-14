@@ -1,12 +1,12 @@
 <template>
-  <div class="mx-4">
+  <public-page-wrapper>
     <h1 class="text-3xl md:text-4xl font-bold text-center my-4 md:my-8 px-4">
       Your One-Stop Booking Solution
       <span class="block text-lg md:text-2xl mt-3 text-gray-700 font-normal">
         Restaurants • Appointments • Services • Events • And Beyond
       </span>
     </h1>
-    <div class="flex justify-center"><public-merchant-searchbar /></div>
+    <div class="flex justify-center"><public-service-provider-searchbar /></div>
 
     <div class="mt-4">
       <p class="text-lg md:text-2xl text-gray-700 font-bold">
@@ -17,7 +17,7 @@
         <public-category-list />
       </div>
     </div>
-  </div>
+  </public-page-wrapper>
 </template>
 
 <script lang="ts" setup></script>

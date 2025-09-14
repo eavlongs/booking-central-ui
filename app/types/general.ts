@@ -4,3 +4,8 @@ export type Category = {
   imageUrl: string
   description: string
 }
+
+export type GenericSortOption = {
+  label: string
+  value: string | null
+}
