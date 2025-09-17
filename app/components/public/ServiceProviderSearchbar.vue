@@ -1,6 +1,10 @@
 <template>
   <div class="flex items-center gap-x-2">
-    <general-searchbar placeholder="Search for..." v-model="query" />
+    <general-searchbar
+      placeholder="Search for..."
+      v-model="query"
+      @enter="handleSearch"
+    />
     <UButton @click="handleSearch" class="py-2.5 px-4 cursor-pointer"
       >Search</UButton
     >
@@ -22,7 +26,10 @@
   const query = ref("")
 
   async function handleSearch() {
-    await navigateTo(`${props.searchPath}?q=${query.value}`)
+    await navigateTo({
+      path: props.searchPath,
+      query: { q: query.value },
+    })
   }
 </script>
 

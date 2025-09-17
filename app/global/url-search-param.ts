@@ -4,8 +4,17 @@ export function getUrlSearchParamWithFallback(
   route: ReturnType<typeof useRoute>,
   key: string,
   fallback: string = "",
-) {
+): string {
   return route.query[key] ? route.query[key].toString() : fallback
+}
+
+export function getUrlSearchParamWithFallbackAsNumber(
+  route: ReturnType<typeof useRoute>,
+  key: string,
+  fallback: number = 1,
+): number {
+  const num = parseInt(getUrlSearchParamWithFallback(route, key))
+  return isNaN(num) ? fallback : num
 }
 
 export function getUrlSearchParamString(

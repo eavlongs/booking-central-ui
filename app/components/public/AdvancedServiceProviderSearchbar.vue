@@ -26,6 +26,7 @@
 <script lang="ts" setup>
   import {
     DEFAULT_PUBLIC_SEARCH_PATH,
+    PUBLIC_SEARCH_PAGE_NUMBER_KEY,
     PUBLIC_SEARCH_QUERY_KEY,
     PUBLIC_SEARCH_SORT_KEY,
   } from "~/global/config"
@@ -33,7 +34,7 @@
     getUrlSearchParamMap,
     getUrlSearchParamWithFallback,
   } from "~/global/url-search-param"
-  import type { GenericSortOption } from "~/types/general"
+  import { sortOptions } from "./data"
 
   const props = withDefaults(
     defineProps<{
@@ -65,25 +66,11 @@
     },
   )
 
-  const sortOptions: GenericSortOption[] = [
-    {
-      label: "None",
-      value: null,
-    },
-    {
-      label: "Name (A-Z)",
-      value: "name",
-    },
-    {
-      label: "Name (Z-A)",
-      value: "-name",
-    },
-  ]
-
   async function handleSearch() {
     const searchParams = {
       [PUBLIC_SEARCH_QUERY_KEY]: query.value,
       [PUBLIC_SEARCH_SORT_KEY]: sortValue.value,
+      [PUBLIC_SEARCH_PAGE_NUMBER_KEY]: "1",
     }
 
     await navigateTo({

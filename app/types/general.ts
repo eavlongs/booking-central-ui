@@ -5,7 +5,7 @@ export type Category = {
   description: string
 }
 
-export type GenericSortOption = {
+export type GenericOption = {
   label: string
   value: string | null
 }
