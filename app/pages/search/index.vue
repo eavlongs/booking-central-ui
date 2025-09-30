@@ -1,45 +1,43 @@
 <template>
-  <public-page-wrapper>
+  <public-page-wrapper asContainer>
     <div class="flex justify-center my-4 md:my-8">
       <public-advanced-service-provider-searchbar />
     </div>
-    <div class="w-full md:w-[80%] lg:w-[60%] md:mx-auto">
-      <h2 class="text-lg md:text-xl font-semibold">
-        {{ searchTitle }}
-      </h2>
-      <div class="text-sm md:text-base">
-        <p v-if="categoryId">
-          Category:
-          <span class="font-semibold">{{ temporaryCategoryName }}</span>
-          <span v-if="sortParam">
-            , Sorted by:
-            <span class="font-semibold">{{
-              getOptionLabelByValue(sortOptions, sortParam)
-            }}</span>
-          </span>
-          <span></span>
-        </p>
-        <p v-if="totalCount > 0 && startItem >= 1">
-          Showing
-          <span class="font-semibold">{{ startItem }}-{{ endItem }}</span> of
-          <span class="font-semibold">{{ totalCount }}</span> results
-        </p>
-      </div>
-      <div class="mt-4">
-        <public-shop-listing />
-        <div class="flex justify-center mt-4">
-          <UPagination
-            v-model:page="pageNumber"
-            :total="totalCount"
-            :items-per-page="perPage"
-            :show-controls="false"
-            show-edges
-            :to="handlePageChange"
-            :ui="{
-              item: 'cursor-pointer',
-            }"
-          />
-        </div>
+    <h2 class="text-lg md:text-xl font-semibold">
+      {{ searchTitle }}
+    </h2>
+    <div class="text-sm md:text-base">
+      <p v-if="categoryId">
+        Category:
+        <span class="font-semibold">{{ temporaryCategoryName }}</span>
+        <span v-if="sortParam">
+          , Sorted by:
+          <span class="font-semibold">{{
+            getOptionLabelByValue(sortOptions, sortParam)
+          }}</span>
+        </span>
+        <span></span>
+      </p>
+      <p v-if="totalCount > 0 && startItem >= 1">
+        Showing
+        <span class="font-semibold">{{ startItem }}-{{ endItem }}</span> of
+        <span class="font-semibold">{{ totalCount }}</span> results
+      </p>
+    </div>
+    <div class="mt-4">
+      <public-shop-listing />
+      <div class="flex justify-center mt-4">
+        <UPagination
+          v-model:page="pageNumber"
+          :total="totalCount"
+          :items-per-page="perPage"
+          :show-controls="false"
+          show-edges
+          :to="handlePageChange"
+          :ui="{
+            item: 'cursor-pointer',
+          }"
+        />
       </div>
     </div>
   </public-page-wrapper>

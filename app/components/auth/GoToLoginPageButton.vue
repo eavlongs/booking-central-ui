@@ -1,6 +1,6 @@
 <template>
   <ULink to="/login" :no-prefetch="true">
-    <UButton class="px-4 py-2 cursor-pointer"> Sign In </UButton>
+    <UButton size="md">Sign In</UButton>
   </ULink>
 </template>
 

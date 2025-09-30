@@ -1,7 +1,7 @@
 <template>
   <ULink :to="`/provider/${shop.id}`">
     <div
-      class="bg-white border border-gray-200 rounded-lg p-3.5 hover:border-gray-300 hover:shadow-sm hover:-translate-y-0.5 transition-all cursor-pointer"
+      class="w-full bg-white border border-gray-200 rounded-lg p-3.5 hover:border-gray-300 hover:shadow-sm hover:-translate-y-0.5 transition-all cursor-pointer"
     >
       <div class="flex flex-col md:flex-row lg:items-center gap-3">
         <!-- Logo -->

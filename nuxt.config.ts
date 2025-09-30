@@ -5,9 +5,11 @@ export default defineNuxtConfig({
   modules: ["@nuxt/icon", "@nuxt/fonts", "@nuxt/ui"],
   css: ["~/assets/css/main.css"],
   runtimeConfig: {
+    jwtPublicKeyPath: "",
     public: {
       backendLoginPath: "",
       apiUrl: "",
+      apiPrefix: "",
     },
   },
   ui: {

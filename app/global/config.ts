@@ -6,3 +6,6 @@ export const PUBLIC_SEARCH_PAGE_NUMBER_KEY = "page"
 export const PUBLIC_SEARCH_PER_PAGE_KEY = "per_page"
 
 export const DEFAULT_PUBLIC_PER_PAGE_ITEM = 30
+
+export const ACCESS_TOKEN_KEY = "access_token"
+export const REFRESH_TOKEN_KEY = "refresh_token"

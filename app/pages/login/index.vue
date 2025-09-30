@@ -5,12 +5,38 @@
     <div class="flex flex-col items-center gap-y-4">
       <span class="text-xl font-semibold">Login Methods</span>
       <div class="flex flex-col items-center gap-y-2">
-        <auth-google-login-button />
+        <auth-oauth-provider-login-button
+          v-for="provider in providers"
+          :key="provider.id"
+          :provider="provider"
+        />
       </div>
     </div>
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+  import { useAPI } from "~/composables/api"
+  import { type Provider } from "~/types/auth"
+  import type { ApiResponse } from "~/types/general"
 
-<style></style>
+  const providers = ref<Provider[]>([])
+  const { $api } = useNuxtApp()
+
+  async function fetchProviders() {
+    try {
+      const { data } =
+        await useAPI<ApiResponse<{ providers: Provider[] }>>("/auth/providers")
+
+      if (data.value.success && data.value.data) {
+        providers.value = data.value.data.providers
+      } else {
+        throw new Error("Unexpected response")
+      }
+    } catch (e: any) {
+      console.error(e)
+    }
+  }
+
+  fetchProviders()
+</script>
